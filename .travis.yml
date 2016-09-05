@@ -1,0 +1,45 @@
+language: generic
+sudo: false
+git:
+    depth: 3
+matrix:
+    include:
+        #        - os: osx
+        #          env: DEPS="numpy" PYTHON_VERSION="2.7" PYTHON_ARCH="32"
+        - os: osx
+          env: DEPS="numpy" PYTHON_VERSION="2.7" PYTHON_ARCH="64"
+        #        - os: osx
+        #          env: DEPS="numpy" PYTHON_VERSION="3.4" PYTHON_ARCH="32"
+        - os: osx
+          env: DEPS="numpy" PYTHON_VERSION="3.4" PYTHON_ARCH="64"
+        #        - os: osx
+        #          env: DEPS="numpy" PYTHON_VERSION="3.5" PYTHON_ARCH="32"
+        - os: osx
+          env: DEPS="numpy" PYTHON_VERSION="3.5" PYTHON_ARCH="64"
+        #        - os: linux
+        #          env: DEPS="numpy" PYTHON_VERSION="2.7" PYTHON_ARCH="32"
+        - os: linux
+          env: DEPS="numpy" PYTHON_VERSION="2.7" PYTHON_ARCH="64"
+        #        - os: linux
+        #          env: DEPS="numpy" PYTHON_VERSION="3.4" PYTHON_ARCH="32"
+        - os: linux
+          env: DEPS="numpy" PYTHON_VERSION="3.4" PYTHON_ARCH="64"
+        #        - os: linux
+        #          env: DEPS="numpy" PYTHON_VERSION="3.5" PYTHON_ARCH="32"
+        - os: linux
+          env: DEPS="numpy" PYTHON_VERSION="3.5" PYTHON_ARCH="64"
+
+before_install:
+    - uname -a
+    - source "ci/travis/conda_setup.sh"
+
+install:
+    - source "ci/travis/conda_install.sh"
+
+script:
+    - python -c "import numpy as np;print(np.version.version)"
+
+notifications:
+    email:
+        on_success: never
+        on_failure: never
