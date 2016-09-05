@@ -10,4 +10,4 @@ This can be used together with its twin [python-conda-appveyor](https://github.c
 
 ## License
 
-Uses a BSD 3-clause license, please also see the included full `LICENSE` file.
+Uses a BSD 3-clause license, please also see the included full [LICENSE](LICENSE) file.
